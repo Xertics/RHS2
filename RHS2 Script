@@ -1,0 +1,92 @@
+--RHS2 Script
+
+getgenv().job = false
+getgenv().star = false
+
+
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
+
+local w = library:CreateWindow("RHS2") -- Creates the window
+
+local b = w:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
+
+
+b:Toggle("Auto Void Job",function(bool)
+    getgenv().job = bool
+    print(shared.toggle)
+    if bool then
+        doTap();
+    end
+end)
+
+b:Toggle("Auto Collect Starts",function(bool)
+    getgenv().star = bool
+    print(shared.toggle)
+    if bool then
+        doTapp();
+    end
+end)
+
+b:Label("Credits: Xertics#8797",{
+    TextSize = 15; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(17, 17, 17); -- Self Explaining
+    
+}) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b:DestroyGui()
+
+
+
+
+
+function doTap()
+spawn(function()
+while wait() do
+    if getgenv().job == true then
+
+local args = {
+    [1] = "2C1A29CF-651E-47FE-8E3C-94A19A73F1D2"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Jobs.ChefUmbras.SectionCompleted:FireServer(unpack(args))
+
+    end
+  end
+end)
+
+function doTapp()
+spawn(function()
+while wait() do
+    if getgenv().star == true then
+
+game:GetService("ReplicatedStorage").Remotes.ShootingStars.RequestStarReward:InvokeServer();
+game:GetService("ReplicatedStorage").Remotes.ShootingStars.RequestStarReward:InvokeServer();
+game:GetService("ReplicatedStorage").Remotes.ShootingStars.RequestStarReward:InvokeServer();
+
+    end
+  end
+end)
+
+
+
+
+
+
+
+end
+end
