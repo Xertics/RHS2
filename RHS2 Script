@@ -12,7 +12,7 @@ local w = library:CreateWindow("RHS2") -- Creates the window
 local b = w:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
 
 
-b:Toggle("Auto Void Job",function(bool)
+b:Toggle("Auto Work Job",function(bool)
     getgenv().job = bool
     print(shared.toggle)
     if bool then
@@ -20,7 +20,7 @@ b:Toggle("Auto Void Job",function(bool)
     end
 end)
 
-b:Toggle("Auto Collect Starts",function(bool)
+b:Toggle("Auto Loot Stars",function(bool)
     getgenv().star = bool
     print(shared.toggle)
     if bool then
