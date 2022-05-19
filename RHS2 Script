@@ -12,7 +12,7 @@ local w = library:CreateWindow("RHS2") -- Creates the window
 local b = w:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
 
 
-b:Toggle("Auto Work Job",function(bool)
+b:Toggle("Complete Job (Void)",function(bool)
     getgenv().job = bool
     print(shared.toggle)
     if bool then
@@ -20,7 +20,7 @@ b:Toggle("Auto Work Job",function(bool)
     end
 end)
 
-b:Toggle("Auto Loot Stars",function(bool)
+b:Toggle("Loot Stars",function(bool)
     getgenv().star = bool
     print(shared.toggle)
     if bool then
@@ -29,7 +29,7 @@ b:Toggle("Auto Loot Stars",function(bool)
 end)
 
 b:Label("Credits: Xertics#8797",{
-    TextSize = 15; -- Self Explaining
+    TextSize = 18; -- Self Explaining
     TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
     BgColor = Color3.fromRGB(17, 17, 17); -- Self Explaining
     
