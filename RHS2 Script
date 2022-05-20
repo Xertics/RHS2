@@ -4,6 +4,7 @@ getgenv().job = false
 getgenv().star = false
 getgenv().team = false
 getgenv().gift = false
+getgenv().tools = false
 
 
 
@@ -45,6 +46,15 @@ b:Toggle("Auto Complete Job",function(bool)
         doTap();
     end
 end)
+
+b:Toggle("Auto Equip All Tools",function(bool)
+    getgenv().tools = bool
+    print(shared.toggle)
+    if bool then
+        doTappppp();
+    end
+end)
+
 
 b:Label("Credits: Xertics#8797",{
     TextSize = 18; -- Self Explaining
@@ -191,5 +201,15 @@ game:GetService("ReplicatedStorage").Remotes.Items.OpenGiftBox:InvokeServer(unpa
 
 end
 end
+end)
+end
+
+function doTappppp()
+spawn(function()
+for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    if tool:IsA("Tool") then
+         tool.Parent = game:GetService("Players").LocalPlayer.Character -- I didn't use Equip because the Equip function unequips any other tools in your character.
+    end
+  end
 end)
 end
