@@ -22,7 +22,7 @@ b:Toggle("Auto Change Roles",function(bool)
     end
 end)
 
-b:Toggle("Auto redeem Stars",function(bool)
+b:Toggle("Auto Redeem Stars",function(bool)
     getgenv().star = bool
     print(shared.toggle)
     if bool then
@@ -30,7 +30,7 @@ b:Toggle("Auto redeem Stars",function(bool)
     end
 end)
 
-b:Toggle("Auto redeem gifts",function(bool)
+b:Toggle("Auto Redeem Gifts",function(bool)
     getgenv().gift = bool
     print(shared.toggle)
     if bool then
