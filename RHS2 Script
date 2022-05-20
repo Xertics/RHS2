@@ -2,6 +2,8 @@
 
 getgenv().job = false
 getgenv().star = false
+getgenv().team = false
+getgenv().gift = false
 
 
 
@@ -12,19 +14,35 @@ local w = library:CreateWindow("RHS2") -- Creates the window
 local b = w:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
 
 
-b:Toggle("Complete Job (Void)",function(bool)
-    getgenv().job = bool
+b:Toggle("Auto Change Roles",function(bool)
+    getgenv().team = bool
     print(shared.toggle)
     if bool then
-        doTap();
+        doTappp();
     end
 end)
 
-b:Toggle("Loot Stars",function(bool)
+b:Toggle("Auto redeem Stars",function(bool)
     getgenv().star = bool
     print(shared.toggle)
     if bool then
         doTapp();
+    end
+end)
+
+b:Toggle("Auto redeem gifts",function(bool)
+    getgenv().gift = bool
+    print(shared.toggle)
+    if bool then
+        doTapppp();
+    end
+end)
+
+b:Toggle("Auto Complete Job",function(bool)
+    getgenv().job = bool
+    print(shared.toggle)
+    if bool then
+        doTap();
     end
 end)
 
@@ -38,21 +56,88 @@ b:Label("Credits: Xertics#8797",{
 
 
 
-
-
-
-
-
-
-
-
-
-
 b:DestroyGui()
 
 
 
 
+
+
+
+function doTappp()
+spawn(function()
+    if getgenv().team == true then
+        while true do
+
+
+local args = {
+    [1] = "Freshman"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+wait(1.5)
+
+local args = {
+    [1] = "Sophomore"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+wait(1.5)
+
+local args = {
+    [1] = "Junior"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+wait(1.5)
+
+local args = {
+    [1] = "Senior"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+wait(1.5)
+
+local args = {
+    [1] = "Student"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+wait(1.5)
+
+local args = {
+    [1] = "Cheerleader"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+wait(1.5)
+
+local args = {
+    [1] = "Athlete"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+wait(1.5)
+
+local args = {
+    [1] = "Kid"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Data.ChangeRole:FireServer(unpack(args))
+
+
+
+end
+end
+end)
+end
 
 function doTap()
 spawn(function()
@@ -75,6 +160,7 @@ game:GetService("ReplicatedStorage").Remotes.Jobs.ChefUmbras.SectionCompleted:Fi
     end
   end
 end)
+end
 
 function doTapp()
 spawn(function()
@@ -89,12 +175,21 @@ game:GetService("ReplicatedStorage").Remotes.ShootingStars.RequestStarReward:Inv
      end
    end
 end)
+end
 
+function doTapppp()
+spawn(function()
+while wait() do
+    if getgenv().gift == true then
 
+local args = {
+    [1] = "1238",
+    [2] = 1
+}
 
-
-
-
+game:GetService("ReplicatedStorage").Remotes.Items.OpenGiftBox:InvokeServer(unpack(args))
 
 end
+end
+end)
 end
