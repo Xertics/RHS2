@@ -60,26 +60,34 @@ while wait() do
     if getgenv().job == true then
 
 local args = {
+    [1] = "VoidServant",
+    [2] = "Medium"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Jobs.RequestServerStartJob:FireServer(unpack(args));
+while wait() do
+local args = {
     [1] = "2C1A29CF-651E-47FE-8E3C-94A19A73F1D2"
 }
 
-game:GetService("ReplicatedStorage").Remotes.Jobs.ChefUmbras.SectionCompleted:FireServer(unpack(args))
-
+game:GetService("ReplicatedStorage").Remotes.Jobs.ChefUmbras.SectionCompleted:FireServer(unpack(args));
+      end
     end
   end
 end)
 
 function doTapp()
 spawn(function()
-while wait() do
+    while wait() do
     if getgenv().star == true then
 
 game:GetService("ReplicatedStorage").Remotes.ShootingStars.RequestStarReward:InvokeServer();
 game:GetService("ReplicatedStorage").Remotes.ShootingStars.RequestStarReward:InvokeServer();
 game:GetService("ReplicatedStorage").Remotes.ShootingStars.RequestStarReward:InvokeServer();
 
-    end
-  end
+
+     end
+   end
 end)
 
 
