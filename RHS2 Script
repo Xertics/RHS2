@@ -157,7 +157,7 @@ while wait() do
 
 local args = {
     [1] = "VoidServant",
-    [2] = "Medium"
+    [2] = "Easy"
 }
 
 game:GetService("ReplicatedStorage").Remotes.Jobs.RequestServerStartJob:FireServer(unpack(args));
