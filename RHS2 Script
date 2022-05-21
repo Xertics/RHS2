@@ -14,20 +14,13 @@ local w = library:CreateWindow("RHS2") -- Creates the window
 
 local b = w:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
 
+local c = w:CreateFolder("Misc")
 
-b:Toggle("Auto Change Roles",function(bool)
+c:Toggle("Loop Change Roles",function(bool)
     getgenv().team = bool
     print(shared.toggle)
     if bool then
         doTappp();
-    end
-end)
-
-b:Toggle("Auto Redeem Stars",function(bool)
-    getgenv().star = bool
-    print(shared.toggle)
-    if bool then
-        doTapp();
     end
 end)
 
@@ -47,7 +40,15 @@ b:Toggle("Auto Complete Job",function(bool)
     end
 end)
 
-b:Toggle("Auto Equip All Tools",function(bool)
+b:Toggle("Auto Redeem Stars",function(bool)
+    getgenv().star = bool
+    print(shared.toggle)
+    if bool then
+        doTapp();
+    end
+end)
+
+c:Toggle("Equip All Tools (backpack)",function(bool)
     getgenv().tools = bool
     print(shared.toggle)
     if bool then
@@ -56,7 +57,7 @@ b:Toggle("Auto Equip All Tools",function(bool)
 end)
 
 
-b:Label("Credits: Xertics#8797",{
+c:Label("Credits: Xertics#8797",{
     TextSize = 18; -- Self Explaining
     TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
     BgColor = Color3.fromRGB(17, 17, 17); -- Self Explaining
@@ -66,7 +67,7 @@ b:Label("Credits: Xertics#8797",{
 
 
 
-b:DestroyGui()
+c:DestroyGui()
 
 
 
