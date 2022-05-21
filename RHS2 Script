@@ -167,6 +167,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.Jobs.ChefUmbras.SectionCompleted:FireServer(unpack(args));
+    wait(5)
       end
     end
   end
