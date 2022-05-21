@@ -1,6 +1,8 @@
 --RHS2 Script
 
-getgenv().job = false
+getgenv().job1 = false
+getgenv().job2 = false
+getgenv().job3 = false
 getgenv().star = false
 getgenv().team = false
 getgenv().gift = false
@@ -16,6 +18,8 @@ local b = w:CreateFolder("Main") -- Creates the folder(U will put here your butt
 
 local c = w:CreateFolder("Misc")
 
+local d = w:CreateFolder("Other")
+
 c:Toggle("Loop Change Roles",function(bool)
     getgenv().team = bool
     print(shared.toggle)
@@ -24,7 +28,7 @@ c:Toggle("Loop Change Roles",function(bool)
     end
 end)
 
-b:Toggle("Auto Redeem Gifts",function(bool)
+d:Toggle("Auto Redeem Gifts",function(bool)
     getgenv().gift = bool
     print(shared.toggle)
     if bool then
@@ -32,15 +36,31 @@ b:Toggle("Auto Redeem Gifts",function(bool)
     end
 end)
 
-b:Toggle("Auto Complete Job",function(bool)
-    getgenv().job = bool
+b:Toggle("Auto Complete Job (Easy)",function(bool)
+    getgenv().job1 = bool
     print(shared.toggle)
     if bool then
         doTap();
     end
 end)
 
-b:Toggle("Auto Redeem Stars",function(bool)
+b:Toggle("Auto Complete Job (Medium)",function(bool)
+    getgenv().job2 = bool
+    print(shared.toggle)
+    if bool then
+        doTap2();
+    end
+end)
+
+b:Toggle("Auto Complete Job (Hard)",function(bool)
+    getgenv().job3 = bool
+    print(shared.toggle)
+    if bool then
+        doTap3();
+    end
+end)
+
+d:Toggle("Auto Redeem Stars",function(bool)
     getgenv().star = bool
     print(shared.toggle)
     if bool then
@@ -57,7 +77,7 @@ c:Toggle("Equip All Tools (backpack)",function(bool)
 end)
 
 
-c:Label("Credits: Xertics#8797",{
+d:Label("Credits: Xertics#8797",{
     TextSize = 18; -- Self Explaining
     TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
     BgColor = Color3.fromRGB(17, 17, 17); -- Self Explaining
@@ -67,7 +87,7 @@ c:Label("Credits: Xertics#8797",{
 
 
 
-c:DestroyGui()
+d:DestroyGui()
 
 
 
@@ -153,7 +173,7 @@ end
 function doTap()
 spawn(function()
 while wait() do
-    if getgenv().job == true then
+    if getgenv().job1 == true then
 
 local args = {
     [1] = "VoidServant",
@@ -211,6 +231,54 @@ spawn(function()
 for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
     if tool:IsA("Tool") then
          tool.Parent = game:GetService("Players").LocalPlayer.Character -- I didn't use Equip because the Equip function unequips any other tools in your character.
+    end
+  end
+end)
+end
+
+function doTap2()
+spawn(function()
+while wait() do
+    if getgenv().job2 == true then
+
+local args = {
+    [1] = "VoidServant",
+    [2] = "Medium"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Jobs.RequestServerStartJob:FireServer(unpack(args));
+while wait() do
+local args = {
+    [1] = "2C1A29CF-651E-47FE-8E3C-94A19A73F1D2"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Jobs.ChefUmbras.SectionCompleted:FireServer(unpack(args));
+    wait(5)
+      end
+    end
+  end
+end)
+end
+
+function doTap3()
+spawn(function()
+while wait() do
+    if getgenv().job3 == true then
+
+local args = {
+    [1] = "VoidServant",
+    [2] = "Hard"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Jobs.RequestServerStartJob:FireServer(unpack(args));
+while wait() do
+local args = {
+    [1] = "2C1A29CF-651E-47FE-8E3C-94A19A73F1D2"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Jobs.ChefUmbras.SectionCompleted:FireServer(unpack(args));
+    wait(5)
+      end
     end
   end
 end)
